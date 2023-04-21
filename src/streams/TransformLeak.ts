@@ -8,6 +8,7 @@ export interface ITransformLeakOptions {
     values: string[];
     logLevel: string;
   };
+  file: string;
   customLogger?: {
     error: () => void;
     info: () => void;
@@ -19,8 +20,9 @@ export interface ITransformLeakOptions {
 export class TransformLeak extends Transform {
   private restricted: ITransformLeakOptions["restricted"];
   private counter: number = 1;
+  private file: ITransformLeakOptions["file"];
 
-  public constructor({ restricted }: ITransformLeakOptions) {
+  public constructor({ restricted, file }: ITransformLeakOptions) {
     super({ decodeStrings: false });
 
     // TODO: throw error and make obtain if the arguments is empty
@@ -28,6 +30,8 @@ export class TransformLeak extends Transform {
     //      1. Just setting empty array if not array at all
     //      2. Do not call _transform
     this.restricted = restricted;
+
+    this.file = file;
   }
 
   buildRegexFromArray(array: string[]) {
@@ -54,8 +58,10 @@ export class TransformLeak extends Transform {
           });
 
           rl.on("line", (strLine) => {
-            if (strLine && strLine.match(regex)) {
-              console.log("line", this.counter, strLine.match(regex));
+            const foundMatch = strLine.match(regex);
+
+            if (strLine && foundMatch) {
+              console.log(foundMatch, this.file + ":" + this.counter);
             }
 
             this.counter++;
