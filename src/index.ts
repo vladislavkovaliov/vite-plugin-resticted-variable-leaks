@@ -2,8 +2,10 @@ import fs from "fs";
 
 import { TransformLeak } from "./streams/TransformLeak";
 
+const file = "./text.txt";
+
 async function main() {
-  const rs = fs.createReadStream("./text.txt", "utf8");
+  const rs = fs.createReadStream(file, "utf8");
 
   rs.pipe(
     new TransformLeak({
@@ -12,6 +14,7 @@ async function main() {
         values: ["html", "body"],
         logLevel: "error",
       },
+      file: file,
     })
   );
 }
