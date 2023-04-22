@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/vladislavkovaliov/vite-plugin-resticted-variable-leaks#readme",
   "dependencies": {
-    "@vladislavkovaliov/vite-plugin-resticted-variable-leaks": "^1.0.1",
     "ts-node": "^10.9.1",
     "vite": "^4.3.1"
   }
