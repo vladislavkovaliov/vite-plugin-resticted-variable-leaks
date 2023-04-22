@@ -2,7 +2,15 @@
   "name": "vite-plugin-resticted-variable-leaks",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": false,
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "tsc:build": "rm -rf dist && rm -rf types && tsc -p tsconfig.build.json",
     "dev": "vite",
