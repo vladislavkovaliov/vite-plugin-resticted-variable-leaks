@@ -1,6 +1,6 @@
 {
   "name": "@vladislavkovaliov/vite-plugin-resticted-variable-leaks",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "",
   "private": false,
   "main": "./dist/index.js",
