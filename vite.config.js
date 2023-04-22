@@ -7,5 +7,12 @@ import { viteResctrectedVariable } from "./dist";
 export default defineConfig({
   // ...
   //
-  plugins: [viteResctrectedVariable()],
+  plugins: [
+    viteResctrectedVariable({
+      restricted: {
+        type: "array",
+        values: ["html"],
+      },
+    }),
+  ],
 });

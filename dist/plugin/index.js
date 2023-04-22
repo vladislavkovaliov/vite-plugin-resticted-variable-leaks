@@ -7,7 +7,7 @@ exports.viteResctrectedVariable = void 0;
 const fs_1 = __importDefault(require("fs"));
 const utils_1 = require("../utils");
 const TransformLeak_1 = require("../streams/TransformLeak");
-function viteResctrectedVariable() {
+function viteResctrectedVariable({ restricted: { type, values }, }) {
     return {
         name: "vite-resctrected-variable",
         configResolved(config) {
@@ -18,8 +18,8 @@ function viteResctrectedVariable() {
                     const rs = fs_1.default.createReadStream(file, "utf8");
                     rs.pipe(new TransformLeak_1.TransformLeak({
                         restricted: {
-                            type: "array",
-                            values: ["html", "body"],
+                            type: type,
+                            values: values,
                             logLevel: "error",
                         },
                         file: file,
