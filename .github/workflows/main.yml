@@ -34,3 +34,5 @@ jobs:
       - run: npm ci
       - run: npm run tsc:build
       - run: npm publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
