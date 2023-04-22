@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-resticted-variable-leaks",
+  "name": "@vladislavkovaliov/vite-plugin-resticted-variable-leaks",
   "version": "1.0.0",
   "description": "",
   "private": false,
