@@ -1,6 +1,6 @@
 {
   "name": "@vladislavkovaliov/vite-plugin-resticted-variable-leaks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "private": false,
   "main": "./dist/index.js",
@@ -19,11 +19,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vladislavkovaliov/vite-plugin-resticted-variable-leaks.git"
+    "url": "git://github.com/vladislavkovaliov/vite-plugin-resticted-variable-leaks.git."
   },
   "publishConfig": {
-    "@vladislavkovaliov:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +31,7 @@
   },
   "homepage": "https://github.com/vladislavkovaliov/vite-plugin-resticted-variable-leaks#readme",
   "dependencies": {
+    "@vladislavkovaliov/vite-plugin-resticted-variable-leaks": "^1.0.1",
     "ts-node": "^10.9.1",
     "vite": "^4.3.1"
   }

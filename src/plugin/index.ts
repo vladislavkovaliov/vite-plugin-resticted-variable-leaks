@@ -2,9 +2,11 @@ import fs from "fs";
 
 import { getFiles } from "../utils";
 
-import { TransformLeak } from "../streams/TransformLeak";
+import { ITransformLeakOptions, TransformLeak } from "../streams/TransformLeak";
 
-export function viteResctrectedVariable() {
+export function viteResctrectedVariable({
+  restricted: { type, values },
+}: ITransformLeakOptions) {
   return {
     name: "vite-resctrected-variable",
     configResolved(config: any) {
@@ -17,8 +19,8 @@ export function viteResctrectedVariable() {
           rs.pipe(
             new TransformLeak({
               restricted: {
-                type: "array",
-                values: ["html", "body"],
+                type: type,
+                values: values,
                 logLevel: "error",
               },
               file: file,
