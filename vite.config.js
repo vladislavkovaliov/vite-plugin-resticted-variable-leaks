@@ -2,10 +2,10 @@
 /** @type {import('vite').UserConfig} */
 import { defineConfig } from "vite";
 
-import customPlugin from "./src/plugin";
+import { viteResctrectedVariable } from "./dist";
 
 export default defineConfig({
   // ...
   //
-  plugins: [customPlugin()],
+  plugins: [viteResctrectedVariable()],
 });

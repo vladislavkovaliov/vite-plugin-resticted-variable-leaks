@@ -1,19 +1,14 @@
 import fs from "fs";
-import path from "path";
 
 import { getFiles } from "../utils";
 
 import { TransformLeak } from "../streams/TransformLeak";
 
-export default function () {
+export function viteResctrectedVariable() {
   return {
-    name: "custom-plugin",
-    configResolved(config) {
+    name: "vite-resctrected-variable",
+    configResolved(config: any) {
       const { root } = config;
-
-      console.log(root);
-      console.log(getFiles(root + "/src", []));
-
       const files = getFiles(root + "/src", []).filter((x) => x !== __filename);
       const promises = files.map((file) => {
         return new Promise((res, _) => {
