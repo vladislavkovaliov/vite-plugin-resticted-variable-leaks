@@ -42,7 +42,6 @@ export class TransformLeak extends Transform {
   }
 
   proceedArrayType(chunk: any): void {
-    // TODO: make it with compose()
     const regex = this.buildRegexFromArray(this.restricted.values as string[]);
     const matches = chunk.match(regex);
 
